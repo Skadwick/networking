@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EchoServer", "EchoServer\EchoServer.vcxproj", "{103DAB83-216D-456E-97FB-EAB5D56C5662}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EchoClient", "EchoClient\EchoClient.vcxproj", "{27C6B06A-16C3-43E8-8991-7715734907B4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatServer", "ChatServer\ChatServer.vcxproj", "{8D68EAAC-1D10-4D91-A7CC-9B99C774476F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChatClient", "ChatClient\ChatClient.vcxproj", "{A9699EB2-FB17-42EF-AB24-69043866DAA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{103DAB83-216D-456E-97FB-EAB5D56C5662}.Debug|Win32.ActiveCfg = Debug|Win32
+		{103DAB83-216D-456E-97FB-EAB5D56C5662}.Debug|Win32.Build.0 = Debug|Win32
+		{103DAB83-216D-456E-97FB-EAB5D56C5662}.Release|Win32.ActiveCfg = Release|Win32
+		{103DAB83-216D-456E-97FB-EAB5D56C5662}.Release|Win32.Build.0 = Release|Win32
+		{27C6B06A-16C3-43E8-8991-7715734907B4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{27C6B06A-16C3-43E8-8991-7715734907B4}.Debug|Win32.Build.0 = Debug|Win32
+		{27C6B06A-16C3-43E8-8991-7715734907B4}.Release|Win32.ActiveCfg = Release|Win32
+		{27C6B06A-16C3-43E8-8991-7715734907B4}.Release|Win32.Build.0 = Release|Win32
+		{8D68EAAC-1D10-4D91-A7CC-9B99C774476F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8D68EAAC-1D10-4D91-A7CC-9B99C774476F}.Debug|Win32.Build.0 = Debug|Win32
+		{8D68EAAC-1D10-4D91-A7CC-9B99C774476F}.Release|Win32.ActiveCfg = Release|Win32
+		{8D68EAAC-1D10-4D91-A7CC-9B99C774476F}.Release|Win32.Build.0 = Release|Win32
+		{A9699EB2-FB17-42EF-AB24-69043866DAA7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A9699EB2-FB17-42EF-AB24-69043866DAA7}.Debug|Win32.Build.0 = Debug|Win32
+		{A9699EB2-FB17-42EF-AB24-69043866DAA7}.Release|Win32.ActiveCfg = Release|Win32
+		{A9699EB2-FB17-42EF-AB24-69043866DAA7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
