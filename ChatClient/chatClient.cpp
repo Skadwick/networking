@@ -29,6 +29,7 @@ int __cdecl main(int argc, char **argv)
 
     char recvbuf[DEFAULT_BUFLEN];
 	char sndbuf[DEFAULT_BUFLEN];
+	char myUsrNm[20];
     int iResult;
 	int iSendResult;
     int recvbuflen = DEFAULT_BUFLEN;
@@ -94,13 +95,11 @@ int __cdecl main(int argc, char **argv)
 		printf("Connected to server: %s\n", argv[1]);
 	}
 
-    // Send an initial buffer
-	/*
-	cout << "What name do you wish to use?";
-	cin >> sndbuf;
-	myName = sndbuf;
-	cout << sndbuf;
-    iResult = send( ConnectSocket, sndbuf, (int)strlen(sndbuf), 0 );
+
+    // Sending username to server.
+	cout << "What username do you wish to use?";
+	cin.getline( myUsrNm, strlen(myUsrNm) );
+    iResult = send( ConnectSocket, myUsrNm, (int)strlen(myUsrNm), 0 );
     if (iResult == SOCKET_ERROR) {
         printf("send failed with error: %d\n", WSAGetLastError());
         closesocket(ConnectSocket);
@@ -108,15 +107,14 @@ int __cdecl main(int argc, char **argv)
         return 1;
     }
 
-    printf("Bytes Sent: %ld\n", iResult);
-	*/
+	printf("User name set to: %s\n", myUsrNm);
 
 
     // Receive until the peer closes the connection
     do {
 
 		//Send a message to the server.
-		cout << "client: ";
+		printf("%s>> ", myUsrNm);
 		cin.getline( sndbuf, strlen(sndbuf) );
         iSendResult = send( ConnectSocket, sndbuf, (int)strlen(sndbuf), 0 );
         if (iSendResult == SOCKET_ERROR) {
@@ -131,7 +129,7 @@ int __cdecl main(int argc, char **argv)
         iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
         if (iResult > 0) {
 			recvbuf[iResult] = 0; 
-            printf("Server: %s\n", recvbuf);
+            printf("Server>> %s\n", recvbuf);
         }
         else if (iResult == 0)
             printf("Connection closing...\n");

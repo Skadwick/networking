@@ -30,7 +30,7 @@ int __cdecl main(void)
 	int iResult;
     char recvbuf[DEFAULT_BUFLEN];
 	char sndbuf[DEFAULT_BUFLEN];
-	char usrNme[20];
+	char clientUsrNme[20];
     
     // Initialize Winsock
     iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
@@ -82,6 +82,8 @@ int __cdecl main(void)
         return 1;
     }
 
+	printf("Waiting for client to connect... ");
+
     // Accept a client socket
     ClientSocket = accept(ListenSocket, NULL, NULL);
     if (ClientSocket == INVALID_SOCKET) {
@@ -97,16 +99,14 @@ int __cdecl main(void)
     // No longer need server socket
     closesocket(ListenSocket);
 
-	/*
+
 	//Get client name.
-	cout << "Waiting on client to set a username..." << endl;
-	iResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
+	printf("Waiting on client to set a username...");
+	iResult = recv(ClientSocket, clientUsrNme, 20, 0);
         if (iResult > 0) {
-			cout << "Client username set to: " << recvbuf << endl;
-			usrNme = recvbuf;
-			cout << usrNme << endl;
+			clientUsrNme[iResult] = 0;
+			printf("Client username set to: %s\n", clientUsrNme);
 		}
-	*/
 
 
     //Chat until the connection is closed.
@@ -116,7 +116,7 @@ int __cdecl main(void)
         iResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
         if (iResult > 0) {
 			recvbuf[iResult] = 0;
-			printf("Client: %s\n", recvbuf);
+			printf("%s >> %s\n",clientUsrNme, recvbuf);
         }
         else if (iResult == 0)
             printf("Connection closing...\n");
@@ -128,7 +128,7 @@ int __cdecl main(void)
         }
 
 		//Send a message to the client.
-		cout << "Server: ";
+		cout << "Server >> ";
 		cin.getline( sndbuf, strlen(sndbuf) );
         iSendResult = send( ClientSocket, sndbuf, (int)strlen(sndbuf), 0 );
         if (iSendResult == SOCKET_ERROR) {
@@ -138,9 +138,7 @@ int __cdecl main(void)
             return 1;
         }
 
-
     } while (iResult > 0);
-
 
 
     // shutdown the connection since we're done
