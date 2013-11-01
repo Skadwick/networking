@@ -115,7 +115,7 @@ int __cdecl main(int argc, char **argv)
 
 		//Send a message to the server.
 		printf("%s>> ", myUsrNm);
-		cin.getline( sndbuf, strlen(sndbuf) );
+		cin.getline( sndbuf, DEFAULT_BUFLEN );
         iSendResult = send( ConnectSocket, sndbuf, (int)strlen(sndbuf), 0 );
         if (iSendResult == SOCKET_ERROR) {
 			printf("send failed with error: %d\n", WSAGetLastError());

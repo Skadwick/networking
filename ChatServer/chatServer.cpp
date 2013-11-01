@@ -129,7 +129,7 @@ int __cdecl main(void)
 
 		//Send a message to the client.
 		cout << "Server >> ";
-		cin.getline( sndbuf, strlen(sndbuf) );
+		cin.getline( sndbuf, DEFAULT_BUFLEN );
         iSendResult = send( ClientSocket, sndbuf, (int)strlen(sndbuf), 0 );
         if (iSendResult == SOCKET_ERROR) {
 			printf("send failed with error: %d\n", WSAGetLastError());
