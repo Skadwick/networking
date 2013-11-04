@@ -128,7 +128,7 @@ int __cdecl main(int argc, char **argv)
 		//Receive a message from the client.
         iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
         if (iResult > 0) {
-			recvbuf[iResult] = 0; 
+			recvbuf[iResult] = 0;
             printf("Server>> %s\n", recvbuf);
         }
         else if (iResult == 0)
